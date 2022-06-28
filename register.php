@@ -1,23 +1,23 @@
 <?php 
-	// includes
-	include 'include/nav.php';
-	include 'include/conn.php';
-	include 'include/user.php';
-	include 'include/validator.php';
+// includes
+include 'include/nav.php';
+include 'include/conn.php';
+include 'include/user.php';
+include 'include/validator.php';
 
-	if(isset($_POST['submit'])){
-		$register = new Validator($_POST);
-		$errors = $register->validateRegisterForm();
-		if(empty($errors)){
-			$user = new User();
-			$user->create($_POST, $conn);
-			
-			if($user == true){
-				echo '<script>alert("Account is created")</script>';
-        		echo "<script> location.replace('login.php'); </script>";
-		} 
-		}
+if(isset($_POST['submit'])){
+	$register = new Validator($_POST);
+	$errors = $register->validateRegisterForm();
+	if(empty($errors)){
+		$user = new User();
+		$user->create($_POST, $conn);
+		
+		if($user == true){
+			echo '<script>alert("Account is created")</script>';
+    		echo "<script> location.replace('login.php'); </script>";
+	} 
 	}
+}
 ?>
 
 <!DOCTYPE html>

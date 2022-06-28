@@ -2,7 +2,10 @@
 
 class User{
 
-	public function login($username, $password, $conn){
+	public function login($data, $conn){
+
+        $username = $data['username'];
+        $password = $data['password'];
 
 		$sql = "SELECT id, password FROM `user` WHERE username = ?";
 
@@ -15,7 +18,7 @@ class User{
         if (!$data == false) {
              if(password_verify($password, $data['password'])){
                 session_start();
-                $_SESSION['id'] = $data['id'];
+                $_SESSION['user'] = $username;
                 return true;
 
             } else{

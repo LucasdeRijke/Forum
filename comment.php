@@ -1,3 +1,6 @@
+<?php
+include "./include/nav.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +11,9 @@
 </head>
 <body>
 <?php
-	include "./include/nav.php";
-	
-	//session_start();
-	//echo $_SESSION['thread'];
-
 	session_start();  
  	if(isset($_SESSION['user'])){
- 	// comment form
- 	?>
+ ?>
  	<div class='post'>
 	<form action='comment_back.php' methode='GET' onkeydown="return event.key != 'Enter';">
 		<section>
